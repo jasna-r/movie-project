@@ -4,9 +4,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #445565;
-
-    overflow-y: scroll;
+    background-color: #2d2e30;
+	overflow-y: scroll;
 
 }
 
@@ -56,7 +55,7 @@
 	font-size: 18px;
 	font-weight: 700;
 
-	background: #4484C4;
+	background: rgb(196, 150, 66);
 	color: #FFF;
 	border-radius: 8px;
 	border: none;

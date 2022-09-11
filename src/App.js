@@ -4,6 +4,7 @@ import axios from "axios";
 import ResultCard from "./components/ResultCard/ResultCard";
 import Popup from "./components/Popup/Popup";
 import { ListComponent } from "./components/ListComponent/ListComponent";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   const [state, setState] = useState({
@@ -14,7 +15,7 @@ function App() {
   });
 
   document.onreadystatechange = () => { 
-    console.log("document state:"+document.readyState);
+    console.log("document state:"+ document.readyState);
     if (document.readyState === 'complete') {
       console.log("page is loaded");
       listRandomItem();
@@ -69,7 +70,14 @@ function App() {
 
         
       });
-      console.log("this is list");
+      
+    });
+  };
+
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
     });
   };
 
@@ -91,6 +99,7 @@ function App() {
           false
         )}
       </main>
+      <ScrollToTop scrollToTop={scrollToTop} />
     </div>
   );
 }
