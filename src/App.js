@@ -1,32 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "./components/Search/Search";
 import axios from "axios";
 import ResultCard from "./components/ResultCard/ResultCard";
 import Popup from "./components/Popup/Popup";
 import { ListComponent } from "./components/ListComponent/ListComponent";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import "./App.css";
 
 function App() {
   const [state, setState] = useState({
     searchText: "",
     results: [],
     selected: {},
-    
   });
 
-  document.onreadystatechange = () => { 
-    console.log("document state:"+ document.readyState);
-    if (document.readyState === 'complete') {
-      console.log("page is loaded");
-      listRandomItem();
-    }
-  }
+  useEffect(() => {
+    listRandomItem();
+  });
+
   const apiurl = "http://www.omdbapi.com/?apikey=79cea0b2";
 
   const search = (e) => {
     if (e.key === "Enter") {
-      axios(apiurl + "&s=" + state.searchText)
-      .then(({ data }) => {
+      axios(apiurl + "&s=" + state.searchText).then(({ data }) => {
         let results = data.Search;
 
         setState((prevState) => {
@@ -61,23 +57,19 @@ function App() {
   };
 
   const listRandomItem = () => {
-    axios(apiurl + "&s=any&y=2015")
-    .then(({ data }) => {
+    axios(apiurl + "&s=any&y=2022").then(({ data }) => {
       let results = data.Search;
 
       setState((prevState) => {
         return { ...prevState, results: results };
-
-        
       });
-      
     });
   };
 
-  const scrollToTop = () =>{
+  const scrollToTop = () => {
     window.scrollTo({
-      top: 0, 
-      behavior: 'smooth'
+      top: 0,
+      behavior: "smooth",
     });
   };
 
@@ -89,7 +81,7 @@ function App() {
       <main>
         <Search handleInput={handleInput} search={search} />
 
-        <ListComponent listRandomItem={listRandomItem} />
+        <ListComponent />
 
         <ResultCard results={state.results} openPopup={openPopup} />
 
