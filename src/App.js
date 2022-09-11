@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Search from "./components/Search/Search";
 import axios from "axios";
+import Search from "./components/Search/Search";
 import ResultCard from "./components/ResultCard/ResultCard";
 import Popup from "./components/Popup/Popup";
 import { ListComponent } from "./components/ListComponent/ListComponent";
@@ -8,6 +8,7 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import "./App.css";
 
 function App() {
+  const [isShow, setIsShow] = React.useState(true);
   const [state, setState] = useState({
     searchText: "",
     results: [],
@@ -16,7 +17,7 @@ function App() {
 
   useEffect(() => {
     listRandomItem();
-  });
+  },[]);
 
   const apiurl = "http://www.omdbapi.com/?apikey=79cea0b2";
 
@@ -24,7 +25,8 @@ function App() {
     if (e.key === "Enter") {
       axios(apiurl + "&s=" + state.searchText).then(({ data }) => {
         let results = data.Search;
-
+        
+        setIsShow(false);
         setState((prevState) => {
           return { ...prevState, results: results };
         });
@@ -81,7 +83,7 @@ function App() {
       <main>
         <Search handleInput={handleInput} search={search} />
 
-        <ListComponent />
+        <ListComponent isShow={isShow}/>
 
         <ResultCard results={state.results} openPopup={openPopup} />
 
