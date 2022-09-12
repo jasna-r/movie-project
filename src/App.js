@@ -23,7 +23,8 @@ function App() {
 
   const search = (e) => {
     if (e.key === "Enter") {
-      axios(apiurl + "&s=" + state.searchText).then(({ data }) => {
+      axios(apiurl + "&s=" + state.searchText)
+      .then(({ data }) => {
         let results = data.Search;
         
         setIsShow(false);
@@ -43,7 +44,8 @@ function App() {
   };
 
   const openPopup = (id) => {
-    axios(apiurl + "&i=" + id).then(({ data }) => {
+    axios(apiurl + "&i=" + id)
+    .then(({ data }) => {
       let result = data;
 
       setState((prevState) => {
@@ -59,7 +61,8 @@ function App() {
   };
 
   const listRandomItem = () => {
-    axios(apiurl + "&s=any&y=2022").then(({ data }) => {
+    axios(apiurl + "&s=any&y=2022")
+    .then(({ data }) => {
       let results = data.Search;
 
       setState((prevState) => {
