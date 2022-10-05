@@ -5,23 +5,24 @@
 }
 
 body {
-  font-family: "montserrat", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   background: linear-gradient(rgba(30, 27, 38, 0.95), rgba(30, 27, 38, 0.95)),
-    url("https://i.ibb.co/FDGqCmM/papers-co-ag74-interstellar-wide-space-film-movie-art-33-iphone6-wallpaper.jpg");
+  url("https://i.ibb.co/FDGqCmM/papers-co-ag74-interstellar-wide-space-film-movie-art-33-iphone6-wallpaper.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: repeat;
 }
 
-header {
+.title {
   padding: 50px 15px 0px;
 }
 
-header h1 {
+.title h1 {
   color: #fff;
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 500;
   text-align: center;
+
 }
 
 main {
@@ -29,4 +30,15 @@ main {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
+}
+
+
+hr {
+  display: block;
+  height: 3px;
+  padding: 0;
+  border: none;
+  background-color: #fff;
+  
+
 }

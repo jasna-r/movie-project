@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from "axios";
+import { Navbar } from "./components/Navbar/Navbar";
+import {WatchList} from "./components/WatchList";
+import {Watched} from "./components/Watched";
+import {Add} from "./components/Add";
 import Search from "./components/Search/Search";
 import ResultCard from "./components/ResultCard/ResultCard";
 import Popup from "./components/Popup/Popup";
@@ -61,7 +66,7 @@ function App() {
   };
 
   const listRandomItem = () => {
-    axios(apiurl + "&s=any&y=2022")
+    axios(apiurl + "&s=any&y=2020")
     .then(({ data }) => {
       let results = data.Search;
 
@@ -80,13 +85,36 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>Movie Database</h1>
-      </header>
+       <Router>
+  <Navbar />
+    <Routes>
+      <Route exact path='/' element={<WatchList/>}>
+        
+      </Route>
+
+      <Route path='/watched' element={<Watched/>}>
+      
+      </Route>
+
+      <Route path='/add' element={<Add/>}>
+        
+      </Route>
+    </Routes>
+
+
+ </Router>
+ <br></br>
+ <hr></hr>
+
+      <div className="title">
+        <h1>Search for a movie...</h1>
+      </div>
+      
       <main>
         <Search handleInput={handleInput} search={search} />
-
+        
         <ListComponent isShow={isShow}/>
+
 
         <ResultCard results={state.results} openPopup={openPopup} />
 

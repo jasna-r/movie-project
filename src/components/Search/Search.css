@@ -1,6 +1,7 @@
 .search-box-container {
   display: flex;
   width: 100%;
+  justify-content: center;
   border: none;  
   outline: none;
   background: none;
@@ -13,7 +14,7 @@
 
 .search-box {
   padding-left: 10px;
-   width: 100%;
+  width: 50%;
   height: 50px;
   border: none;
   border-radius: 8px;
@@ -24,6 +25,7 @@
 }
 
 .search-box:focus {
-  box-shadow: 0px 0px 8px 3px rgb(196, 150, 66);
+  box-shadow: 0px 0px 8px 3px rgb(233, 221, 221);  
 }
+
 

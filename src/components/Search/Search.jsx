@@ -7,10 +7,10 @@ function Search({ handleInput, search }) {
       <input
         className="search-box"
         type="text"
-        placeholder="Search for a movie..."
+        placeholder="&#x1F50E;&#xFE0E;  Search for a movie..."
         onChange={handleInput}
         onKeyPress={search}
-      />
+        />
     </div>
   );
 }
