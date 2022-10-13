@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,} from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from "axios";
 import { Navbar } from "./components/Navbar/Navbar";
@@ -17,7 +17,7 @@ function App() {
   const [state, setState] = useState({
     searchText: "",
     results: [],
-    selected: {},
+    selected: {}
   });
 
   useEffect(() => {
@@ -66,7 +66,7 @@ function App() {
   };
 
   const listRandomItem = () => {
-    axios(apiurl + "&s=any&y=2020")
+    axios(apiurl + "&s=any&y=2022")
     .then(({ data }) => {
       let results = data.Search;
 

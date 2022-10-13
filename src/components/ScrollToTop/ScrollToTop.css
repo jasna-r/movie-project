@@ -1,0 +1,21 @@
+.scroll-btn {
+    position: sticky; 
+    padding: 10px 15px;
+    background-color: rgb(233, 221, 221);  
+    color: #032541;
+    border-radius: 5px;
+    font-weight: 700;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    left: 50%;
+    bottom: 40px;    
+    z-index: 1;
+    transition: all 0.3s ease;
+
+}
+
+.scroll-btn:hover {
+    background-color: #1aa762;
+    opacity: 1;
+}
